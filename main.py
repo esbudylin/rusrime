@@ -146,7 +146,8 @@ async def find_rhymes_for_word(text_data, rhyme_word):
         if poetry_soup == previous_soup:
             continue
 
-        poetry_raw = [tag.text for tag in poetry_soup.xpath('.//*[self::br or self::span]')]
+        poetry_raw = [tag.text if tag.text and re.sub(r'[^а-яёА-ЯЁ]', '', tag.text) else None
+                      for tag in poetry_soup.xpath('.//*[self::br or self::span]')]
         rhymes_by_stanza = [list(group) for k, group in groupby(extract_rhymes(poetry_raw), bool) if k]
 
         for stanza in rhymes_by_stanza:
@@ -196,7 +197,7 @@ def create_html_output(rhymes_dict, table_id):
         sorted_keys = sorted(rhymes_dict.keys(),
                              key=lambda author: re.split(r'\W+', (re.sub(r'[^а-яёА-ЯЁ ]', '', author)))[-1])
     elif table_id == 'by_year':
-        sorted_keys = sorted(rhymes_dict.keys(), reverse = True,
+        sorted_keys = sorted(rhymes_dict.keys(), reverse=True,
                              key=lambda year: re.split(r'\.', year)[-1])
     else:
         sorted_keys = sorted(rhymes_dict.keys())
@@ -215,8 +216,8 @@ def create_html_output(rhymes_dict, table_id):
     return str(t_output)
 
 
-def update_html_table (rhymes_dict, table_id):
-    document.getElementById(table_id).innerHTML = create_html_output(rhymes_dict, table_id) 
+def update_html_table(rhymes_dict, table_id):
+    document.getElementById(table_id).innerHTML = create_html_output(rhymes_dict, table_id)
 
 
 async def main(word):
@@ -238,10 +239,10 @@ async def main(word):
                 if rhymes_data:
                     rhymes_dict, rhymes_dict_by_author, rhymes_dict_by_year = update_rhymes_dict(
                         rhymes_dict, rhymes_dict_by_author, rhymes_dict_by_year, rhymes_data)
-                    
-                    update_html_table (rhymes_dict, 'by_rhyme')
-                    update_html_table (rhymes_dict_by_year, 'by_year')
-                    update_html_table (rhymes_dict_by_author, 'by_author')
+
+                    update_html_table(rhymes_dict, 'by_rhyme')
+                    update_html_table(rhymes_dict_by_year, 'by_year')
+                    update_html_table(rhymes_dict_by_author, 'by_author')
 
                     document.getElementById("sort_buttons").style.display = "block"
 
