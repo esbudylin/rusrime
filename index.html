@@ -76,14 +76,16 @@
       status_tag.style.display = "block"
 
       if word_form:
+        document.querySelector('#search_button').disabled = True
         status_tag.innerHTML = f"Searching rhymes for the '{word_form}' word form ..."
         await main(word_form)
+        document.querySelector('#search_button').disabled = False
       else:
         status_tag.innerHTML = "Request is incorrect. Try again."
 
 
     async def handle_enter(e):
-      if e.key == "Enter":
+      if e.key == "Enter" and document.querySelector('#search_button').disabled == False:
         await run_main()
 
 
