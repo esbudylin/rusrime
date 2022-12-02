@@ -1,0 +1,1 @@
+https://processing.ruscorpora.ru/explain.xml?&expand=full&expdiap=0%3A17&flags1=rhyme&lang=ru&level1=0&mode=poetic&nodia=1&parent1=0&sem-mod1=sem&sem-mod1=semx&sid=1&sort=i_grstd&&text=document-info&language=rus&docid=
