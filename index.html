@@ -32,7 +32,7 @@
     <div id="by_author" style="display:none"></div>
   </div>
 
-  <p id="status"></p>
+  <p id="status" style="display:none"></p>
 
   <py-script>
     import asyncio
@@ -47,7 +47,7 @@
 
 
     status_tag = document.getElementById("status")
-    status_tag.style.display = "none"
+    rhyme_request_tag = Element('rhyme_request')
 
     table_ids = get_children_ids("tables")
     sort_buttons_ids = get_children_ids("sort_buttons")
@@ -68,16 +68,24 @@
 
     async def run_main():
       word_form = re.split(r'\s',
-                  re.sub(r'[^а-яёА-ЯЁ ]', '', document.getElementById('rhyme_request').value).rstrip())[-1]
+                  re.sub(r'[^а-яёА-ЯЁ ]', '', rhyme_request_tag.value).rstrip())[-1]
       
+      rhyme_request_tag.clear()
       status_tag.style.display = "block"
 
       if word_form:
-        status_tag.innerHTML = f"Searching rhymes for '{word_form}' word form ..."
+        status_tag.innerHTML = f"Searching rhymes for the '{word_form}' word form ..."
         await main(word_form)
       else:
         status_tag.innerHTML = "Request is incorrect. Try again."
 
+
+    async def handle_enter(e):
+      if e.key == "Enter":
+        await run_main()
+
+
+    rhyme_request_tag.element.onkeypress = handle_enter
   </py-script>
 
   <div>
