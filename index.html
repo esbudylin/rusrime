@@ -52,6 +52,8 @@
     table_ids = get_children_ids("tables")
     sort_buttons_ids = get_children_ids("sort_buttons")
 
+    document.getElementById("rhyme_request").focus()
+
 
     def toggle_sorting(active_sorting):
       for table_id, button_id in zip(table_ids, sort_buttons_ids):
@@ -87,13 +89,13 @@
 
     rhyme_request_tag.element.onkeypress = handle_enter
   </py-script>
-  
+
   <br>
   <hr>
 
   <div style="width:50%">
     <small>
-      <p>Rusrime is a rhyme searching tool for the <a href="https://ruscorpora.ru/en/">Russian National Corpus</a>. Enter any word in Cyrillic letters and the program will try to find its rhymes in the poetic subcorpus of the RNC.</p>
+      <p>Rusrime is a rhyme searching tool for the <a href="https://ruscorpora.ru/en/">Russian National Corpus</a>. Enter any word in Cyrillic letters and the program will try to find its rhymes in the poetic corpus of the RNC.</p>
       <p>Licensed under the MIT license. Visit <a href="https://github.com/esbudylin/rusrime">this repo</a> for source code and more info.</p>
     </small>
   </div>
