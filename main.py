@@ -146,7 +146,7 @@ async def find_rhymes_for_word(text_data, rhyme_word):
         if poetry_soup == previous_soup:
             continue
 
-        poetry_raw = [tag.text if tag.text and re.sub(r'[^а-яёА-ЯЁ]', '', tag.text) else None
+        poetry_raw = [tag.text if tag.text and 'b-wrd-expl' in tag.classes else None
                       for tag in poetry_soup.xpath('.//*[self::br or self::span]')]
         rhymes_by_stanza = [list(group) for k, group in groupby(extract_rhymes(poetry_raw), bool) if k]
 
