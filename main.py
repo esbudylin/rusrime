@@ -62,7 +62,7 @@ def find_bound_word(stanza, stanza_idx, main_word_symbol_idx, symbol_idx, poetry
         rhyme_word = stanza[stanza_idx][1]
 
         if bound_word.casefold() != rhyme_word.casefold():
-            if count_syllables(bound_word) == 0 \
+            if count_syllables(bound_word) == 0 or len(bound_word) == 1 \
                     or count_syllables(rhyme_word) - count_syllables(bound_word) >= 2 and composite_rhyme:
 
                 iteration = 1
