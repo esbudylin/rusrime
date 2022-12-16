@@ -169,7 +169,7 @@ async def find_rhymes_for_word(text_data, rhyme_word):
             return {'author': text_data['author'],
                     'url': url,
                     'creation_year': text_data['creation_year'],
-                    'rhymes': found_rhymes}
+                    'rhymes': set(found_rhymes)}
         else:
             previous_soup = poetry_soup
 
