@@ -1,11 +1,11 @@
 import argparse
 import re
 import sys
-from dataclass_csv import DataclassWriter
 from argparse import Namespace
 from dataclasses import dataclass
 from typing import Iterator
 
+from dataclass_csv import DataclassWriter
 from rich.live import Live
 from rich.table import Table
 
