@@ -3,7 +3,7 @@ Rusrime is a terminal tool designed for searching rhymes within the Russian Nati
 
 Rusrime is powered with Selenium as a web scrapping tool, lxml as an html parser and Rich as a TUI toolkit. In addition to the terminal output, it offers the option to save a search result in a CSV file.
 
-# installation
+## installation
 First, ensure you have Python installed on your device (version 3.11 or later is recommended). Once Python is installed, follow these steps:
 
 * Open the project directory in a terminal.
@@ -14,12 +14,12 @@ First, ensure you have Python installed on your device (version 3.11 or later is
 
 `pip install -r requirements.txt`
 
-# basic usage
+## basic usage
 After dependencies are installed, you can run Rusrime. For example, to start a search for rhymes to the word 'морозец' and save the result in a 'result.csv' file, run this command:
 
 `python main.py морозец -o result.csv`
 
-# defining a subcorpus
+## defining a subcorpus
 Additionally, you can select a subcorpus within which to perform your search. This is useful if you want to analyze specific categories such as poems by a particular author, from a specific time period, or with a certain rhyme scheme. To do this:
 
 * [Define the subcorpus](https://ruscorpora.ru/subcorpus?search=CgQyAggJMAE=) on the RNC website as usual.
