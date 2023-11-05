@@ -6,6 +6,8 @@ Rusrime is powered with Selenium as a web scrapping tool, lxml as an html parser
 ## installation
 First, ensure you have Python installed on your device (version 3.11 or later is recommended). Once Python is installed, follow these steps:
 
+* Clone this repository.
+
 * Open the project directory in a terminal.
 
 * (Optionally) Create a virtual environment.
