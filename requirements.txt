@@ -1,0 +1,6 @@
+selenium==4.14.0
+webdriver-manager==4.0.1
+lxml==4.9.3
+beautifulsoup4==4.12.2
+rich==13.6.0
+dataclass_csv==1.4.0
