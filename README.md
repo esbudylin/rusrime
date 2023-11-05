@@ -1,7 +1,7 @@
 # rusrime
 Rusrime is a terminal tool designed for searching rhymes within the Russian National Corpus. The program provides rhymes for specific words based on the rhyme formulas marked in the RNC. Note that the Rusrime doesn't analyse poems with irregular and blended rhyme types, and texts with irregular stanzas are also excluded.
 
-Rusrime is powered with Selenium as a web scrapping tool, lxml as an html parser and Rich as a TUI toolkit. In addition to the terminal output, it offers the option to save a search result in a CSV file.
+Rusrime is powered with Selenium as a web scraping tool, lxml as an html parser and Rich as a TUI toolkit. In addition to the terminal output, it offers the option to save a search result in a CSV file.
 
 ## installation
 First, ensure you have Python installed on your device (version 3.11 or later is recommended). Once Python is installed, follow these steps:
