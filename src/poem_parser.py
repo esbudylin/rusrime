@@ -31,8 +31,9 @@ def parse_poem(poem_data: PoemHtml) -> Optional[Poem]:
 
     if metadata:
         stanzas = parse_stanzas(poem_data.text, metadata.stanza_len)
+        composed_stanzas = compose_stanzas(stanzas, metadata.rhyme_formula)
 
-        return Poem(metadata, stanzas)
+        return Poem(metadata, composed_stanzas)
 
 
 def parse_stanzas(text: str, stanza_len: Optional[int]) -> list[Stanza]:
@@ -68,6 +69,20 @@ def parse_stanzas(text: str, stanza_len: Optional[int]) -> list[Stanza]:
         result.append(current_stanza)
 
     return result
+
+
+def compose_stanzas(stanzas: list[Stanza], rhyme_formula: str) -> list[Stanza]:
+    stanza_len = len(rhyme_formula)
+
+    acc = [[]]
+
+    for stanza in stanzas:
+        if len(acc[-1]) < stanza_len:
+            acc[-1].extend(stanza)
+        else:
+            acc.append(stanza)
+
+    return acc
 
 
 def delete_stanza_header(current_stanza: Stanza, stanza_len: Optional[int]):
