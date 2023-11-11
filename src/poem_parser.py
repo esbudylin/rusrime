@@ -51,7 +51,12 @@ def parse_stanzas(text: str, stanza_len: Optional[int]) -> list[Stanza]:
         text_header = i == 0
         staza_end_or_beginning = classes["separator_line"] in line_classes
 
+        digit_line = all(i.isdigit() for i in line_text)
+
         if staza_end_or_beginning:
+            if digit_line:
+                continue
+
             if not text_header:
                 current_stanza.append(line_text)
 
