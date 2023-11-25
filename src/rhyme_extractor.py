@@ -72,7 +72,7 @@ def should_compose_rhyme(main_word: str, bound_word: str, composite_rhyme: bool)
 
 def add_composite_rhyme(main_word: str, bound_word: str, line: Line) -> str:
     for word in line[-2::-1]:
-        bound_word = word + " " + bound_word
+        bound_word = word.lower() + " " + bound_word
 
         if count_syllables(bound_word) >= count_syllables(main_word):
             break
