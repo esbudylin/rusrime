@@ -104,7 +104,7 @@ def parse_metadata(explain_table: str) -> Optional[PoemMetadata]:
 
     params_to_fetch = (
         "Автор",
-        "Год создания",
+        "Дата создания",
         "Рифма",
         "Дополнительные параметры",
         "Графическая строфика",
