@@ -63,7 +63,7 @@ class App:
                 rhymes = extract_rhymes(search_word, poem)
 
                 md = poem.metadata
-                url = self.driver.current_url
+                url = self.driver.get_current_url()
 
                 for rhyme in rhymes:
                     yield RhymeData(url, md.author, md.creation_date, rhyme)
