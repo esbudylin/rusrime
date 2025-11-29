@@ -159,6 +159,14 @@ class CorpusDriver:
         except NoSuchElementException:
             pass
 
+        try:
+            cookie_btn = WebDriverWait(self.driver, WAIT_TIME).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, ".cookie-info-box button"))
+            )
+            cookie_btn.click()
+        except NoSuchElementException:
+            pass
+
     def __set_additional_features(self):
         additional_features = "(rhyme)"
 
